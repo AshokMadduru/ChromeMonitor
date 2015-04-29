@@ -1,0 +1,40 @@
+{
+  "manifest_version": 2,
+
+  "name": "Chrome Monitor",
+  "description": "This extension logs user activity on a Chrome browser",
+  "version": "2.0",
+  "short_name": "Chrome Monitor",
+  "author": "",
+
+  "browser_action": {
+    "default_icon": "icon_48.png",
+	"default_title": "TaraMT - Chrome Monitoring!"
+  },
+  "icons" : { 
+        "48": "icon_48.png",
+        "128": "icon_128.png" },
+  "content_scripts": [
+        {
+            "matches": [
+                "https://www.udacity.com/*"
+            ],
+            "js": ["jquery-1.11.2.min.js","contentscript.js"],
+			"run_at": "document_start"
+        }
+    ],
+  "permissions": [
+    "activeTab",
+    "https://ajax.googleapis.com/",
+	"http://*/*",
+    "https://*/*",
+	"tabs",
+	"idle",
+	"identity",
+	"identity.email"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+	"persistent": false
+  }
+}
